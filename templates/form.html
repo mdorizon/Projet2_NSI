@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Bill Gates</title>
+    <link rel="icon" href="static/img/favi.png" />
+    <link href="{{ url_for('static', filename='form.css') }}"  rel="stylesheet" type="text/css" />
+
+  </head>
+
+  <body style="background-color:#2C2F33;">
+
+    <h1 class="titre-page"> Page de questionnaire </h1>
+
+    <form method="POST" action="/traitement"> 
+      <div>
+        <label>Quelle est la fonction actuelle de Bill Gates ?</label>
+
+        <div>
+          <input type="radio" id="q11" name="q1">
+          <label for="q11">P-DG</label>
+        </div>
+        <div>
+          <input type="radio" id="q12" name="q1">
+          <label for="q12">Retraité</label>
+        </div>
+        <div>
+          <input type="radio" id="q13" name="q1">
+          <label for="q13">Membre d'honneur du Conseil d’administration de Microsoft</label>
+        </div>
+      </div>
+      <div>
+        <label>Quel âge a Bill Gates lorsqu’il fonde Microsoft, en 1975 ?</label>
+
+        <div>
+          <input type="radio" id="q21" name="q2">
+          <label for="q21">24 ans</label>
+        </div>
+        <div>
+          <input type="radio" id="q22" name="q2">
+          <label for="q22">20 ans</label>
+        </div>
+        <div>
+          <input type="radio" id="q23" name="q2">
+          <label for="q23">15 ans</label>
+        </div>
+      </div>
+            <div>
+        <label>Quelle université a-t-il abandonné pour se consacrer pleinement à Microsoft ?</label>
+
+        <div>
+          <input type="radio" id="q31" name="q3">
+          <label for="q31">Yale</label>
+        </div>
+        <div>
+          <input type="radio" id="q32" name="q3">
+          <label for="q32">Harvard</label>
+        </div>
+        <div>
+          <input type="radio" id="q33" name="q3">
+          <label for="q33">UCLA</label>
+        </div>
+      </div>
+            <div>
+        <label>Quelle grande entreprise informatique a fait appel à Bill Gates en 1980 ?</label>
+
+        <div>
+          <input type="radio" id="q41" name="q4">
+          <label for="q41">Apple</label>
+        </div>
+        <div>
+          <input type="radio" id="q42" name="q4">
+          <label for="q42">Atari</label>
+        </div>
+        <div>
+          <input type="radio" id="q43" name="q4">
+          <label for="q43">IBM</label>
+        </div>
+      </div>
+            <div>
+        <label>En quelle année Microsoft est introduit en Bourse, faisant de Bill Gates un milliardaire ?</label>
+
+        <div>
+          <input type="radio" id="q51" name="q5">
+          <label for="q51">1986</label>
+        </div>
+        <div>
+          <input type="radio" id="q52" name="q5">
+          <label for="q52">1975</label>
+        </div>
+        <div>
+          <input type="radio" id="q53" name="q5">
+          <label for="q53">1981</label>
+        </div>
+      </div>
+
+
+      <div>
+        <button class="btnA" type="button" id="btn" onclick="formval()">Envoyer</button>
+      </div>
+      <a>je n'ai pas fait le formulaire avec le serveur car la methode post ne fonctionne pas si vous voulez le voir aller dans form.html dans mon script en bas de page et retirer l'anotation!</a>
+      <div id="info"></div>
+    </form>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <div id="div5"></div>
+
+    <script>
+      function formval() {
+        let r11 = document.getElementById("q11");
+        let r12 = document.getElementById("q12");
+        let r13 = document.getElementById("q13");
+        let r21 = document.getElementById("q21");
+        let r22 = document.getElementById("q22");
+        let r23 = document.getElementById("q23");
+        let r31 = document.getElementById("q31");
+        let r32 = document.getElementById("q32");
+        let r33 = document.getElementById("q33");
+        let r41 = document.getElementById("q41");
+        let r42 = document.getElementById("q42");
+        let r43 = document.getElementById("q43");
+        let r51 = document.getElementById("q51");
+        let r52 = document.getElementById("q52");
+        let r53 = document.getElementById("q53");
+
+        let divinfo = document.getElementById("info");
+
+        let div1 = document.getElementById("div1");
+        let div2 = document.getElementById("div2");
+        let div3 = document.getElementById("div3");
+        let div4 = document.getElementById("div4");
+        let div5 = document.getElementById("div5");
+
+
+        if ((r11.checked || r12.checked || r13.checked) && (r21.checked || r22.checked || r23.checked) && (r31.checked || r32.checked || r33.checked) && (r41.checked || r42.checked || r43.checked) && (r51.checked || r52.checked || r53.checked)) {
+
+          divinfo.innerHTML = "tout est bon!";
+          //window.location.href="traitement";
+
+          if (r13.checked) {
+            div1.innerHTML = "Bonne réponse à la première question était: bien la 3ème!";
+          } else {
+            div1.innerHTML = "mauvaise réponse, la réponse à la première question était: la 3ème!";
+          };
+
+          if (r22.checked) {
+            div2.innerHTML = "Bonne réponse à la deuxième question était: bien la 2ème!";
+          } else {
+            div2.innerHTML = "mauvaise réponse, la réponse à la deuxième question était: la 2ème!";
+          };
+
+          if (r32.checked) {
+            div3.innerHTML = "Bonne réponse à la troisième question était: bien la 2ème!";
+          } else {
+            div3.innerHTML = "mauvaise réponse, la réponse à la troisième question était: la 2ème!";
+          };
+
+          if (r43.checked) {
+            div4.innerHTML = "Bonne réponse à la quatrième question était: bien la 3ème!";
+          } else {
+            div4.innerHTML = "mauvaise réponse, la réponse à la quatrième question était: la 3ème!";
+          };
+
+          if (r51.checked) {
+            div5.innerHTML = "Bonne réponse à la cinquième question était: bien la 1ère!";
+          } else {
+            div5.innerHTML = "mauvaise réponse, la réponse à la cinquième question était: la 1ère!";
+          };
+
+
+        } else {
+
+          if (r51.checked || r52.checked || r53.checked) {
+          } else {
+            divinfo.innerHTML = "Veuillez répondre à la 5ème question!";
+          };
+
+          if (r41.checked || r42.checked || r43.checked) {
+          } else {
+            divinfo.innerHTML = "Veuillez répondre à la 4ème question!";
+          };
+
+          if (r31.checked || r32.checked || r33.checked) {
+          } else {
+            divinfo.innerHTML = "Veuillez répondre à la 3ème question!";
+          };
+
+          if (r21.checked || r22.checked || r23.checked) {
+          } else {
+            divinfo.innerHTML = "Veuillez répondre à la 2ème question!";
+          };
+
+          if (r11.checked || r12.checked || r13.checked) {
+          } else {
+            divinfo.innerHTML = "Veuillez répondre à la 1ère question!";
+          };
+        };
+
+      }
+    </script>
+
+  </body>
+
+</html>
